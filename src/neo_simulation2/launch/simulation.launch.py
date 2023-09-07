@@ -91,7 +91,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-                              teleop,
+                            #   teleop,
                                RegisterEventHandler(
                                 event_handler=OnProcessExit(
                                     target_action=spawn_entity,
