@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="awcombo">
+
+    <!-- Args -->
+    <xacro:arg name="use_fake_hardware" default="false" />
+    <xacro:arg name="mode_of_op" default="CSP" />
+    <xacro:arg name="iname" default="eno1" />
+
+    <!-- Amr combo base -->
+    <xacro:include filename="$(find amr_combo_v2)/urdf/amr_combo_v2.urdf.xacro"/>
+
+    <!-- Robotic arm -->
+    <xacro:include filename="$(find awtube2_18kg_v2)/urdf/awtube2_18kg_v2.urdf.xacro" />
+
+    <!-- Gripper -->
+    <xacro:include filename="$(find grip_exon)/urdf/grip_exon.urdf.xacro" />
+
+    <!-- Camera support-->
+    <xacro:include filename="$(find camera_support)/urdf/camera_support.urdf.xacro" />
+
+    <!-- Realsense camera -->
+    <xacro:include filename="$(find realsense2_description)/urdf/_d435.urdf.xacro" />
+
+    <!-- ros2 control -->
+    <xacro:include filename="$(find awcombo_description)/urdf/awtube.ros2_control.xacro" />
+
+    <!-- Calling the macros, starting from neo base -->
+    <xacro:amr_combo_v2 name="base_footprint" parent="base_link">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:amr_combo_v2>
+
+    <xacro:awtube2_18kg_v2 parent="agv_link1">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:awtube2_18kg_v2>
+
+    <xacro:grip_exon parent="awtube2_18kg_v2_link6">
+        <origin xyz="0 0 0.057" rpy="0 0 -1.57" />
+    </xacro:grip_exon>
+
+    <xacro:camera_support parent="GRIPPER">
+        <origin xyz="0 -0.08 -0.048" rpy="3.14 0 1.57" />
+    </xacro:camera_support>
+
+    <xacro:sensor_d435 parent="cam">
+        <origin xyz="0.01 0 0.0125" rpy="3.14 0 0" />
+    </xacro:sensor_d435>
+
+
+    <!-- use_fake_hardware="$(arg use_fake_hardware)" -->
+    <xacro:awtube_ros2_control />
+
+</robot>

@@ -1,0 +1,129 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100 # Hz loop
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    # -------- GPIO --------
+    gpio_command_controller:
+      type: gpio_controllers/GpioCommandController
+
+    # -------- SYNC --------
+    CSP:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    CSV:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    CST:
+      type: effort_controllers/JointGroupEffortController
+
+# ---GPIO -----
+gpio_command_controller:
+  ros__parameters:
+    gpios:
+      - Beckhoff
+    command_interfaces:
+      Beckhoff:
+      - dig_output.1
+      - dig_output.2
+      - dig_output.3
+      - dig_output.4
+      - dig_output.5
+      - dig_output.6
+      - dig_output.7
+      - dig_output.8
+    state_interfaces:
+      Beckhoff:
+      - dig_input.1
+      - dig_input.2
+      - dig_input.3
+      - dig_input.4
+      - dig_input.5
+      - dig_input.6
+      - dig_input.7
+      - dig_input.8
+
+# ----- CSP -------
+CSP: 
+  ros__parameters:
+    joints:
+      - awtube2_18kg_v2_joint1
+      - awtube2_18kg_v2_joint2
+      - awtube2_18kg_v2_joint3
+      - awtube2_18kg_v2_joint4
+      - awtube2_18kg_v2_joint5
+      - awtube2_18kg_v2_joint6
+    
+    interface_name: position
+
+    command_interfaces:
+      - position
+      # - velocity
+    state_interfaces:
+      - position
+      # - velocity
+    allow_partial_joints_goal: false # Defaults to false
+    open_loop_control: false
+    allow_integration_in_goal_trajectories: true
+    constraints:
+      stopped_velocity_tolerance: 0.01 # Defaults to 0.01
+      goal_time: 0.0 # Defaults to 0.0 (start immediately)
+    
+    awtube2_18kg_v2_joint1:
+      pid:
+        p: 100.0
+        i: 1
+        d: 0.1  
+    awtube2_18kg_v2_joint2:
+      pid:
+        p: 100.0
+        i: 1
+        d: 0.1  
+    awtube2_18kg_v2_joint3:
+      pid:
+        p: 100.0
+        i: 1
+        d: 0.1  
+    awtube2_18kg_v2_joint4:
+      pid:
+        p: 100.0
+        i: 1
+        d: 0.1  
+    awtube2_18kg_v2_joint5:
+      pid:
+        p: 100.0
+        i: 1
+        d: 0.1        
+    awtube2_18kg_v2_joint16:
+      pid:
+        p: 100.0
+        i: 1
+        d: 0.1    
+
+# # ----- CSV -------
+# CSV:
+#   ros__parameters:
+#     joints:
+#       - axis135s800_mounting_point
+#     command_interfaces:
+#       - position
+#       - velocity
+#     state_interfaces:
+#       - position
+#       - velocity
+#     allow_partial_joints_goal: false # Defaults to false
+#     open_loop_control: true
+#     allow_integration_in_goal_trajectories: true
+#     constraints:
+#       stopped_velocity_tolerance: 0.01 # Defaults to 0.01
+#       goal_time: 0.0 # Defaults to 0.0 (start immediately)
+
+# # ----- CST -------
+# CST:
+#   ros__parameters:
+#     joints:
+#       - axis135s800_mounting_point
+#     interface_name: effort

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="grip_exon" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Including xacro -->
+  <xacro:include filename="$(find grip_exon)/urdf/grip_exon.urdf.xacro" />
+
+  <!-- Virtual link for visualization -->
+  <link name="world"/>
+
+  <!-- Calling the xacro -->
+  <xacro:grip_exon parent="world">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:grip_exon>
+
+</robot>

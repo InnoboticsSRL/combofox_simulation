@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="awtube_ros2_control">
+
+        <ros2_control name="awtube" type="system">
+            <hardware>
+                <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+                <!-- <plugin>fake_components/GenericSystem</plugin> -->
+                <param name="interface_name">eno1</param>
+                <param name="cpu_id">0</param>
+                <param name="control_frequency">100</param>
+            </hardware>
+
+            <!-- GPIO -->
+            <!-- <gpio name="Beckhoff">
+                <command_interface name="dig_output.1" />
+                <command_interface name="dig_output.2" />
+                <command_interface name="dig_output.3" />
+                <command_interface name="dig_output.4" />
+                <command_interface name="dig_output.5" />
+                <command_interface name="dig_output.6" />
+                <command_interface name="dig_output.7" />
+                <command_interface name="dig_output.8" />
+                <state_interface name="dig_output.1" />
+                <state_interface name="dig_output.2" />
+                <state_interface name="dig_output.3" />
+                <state_interface name="dig_output.4" />
+                <state_interface name="dig_output.5" />
+                <state_interface name="dig_output.6" />
+                <state_interface name="dig_output.7" />
+                <state_interface name="dig_output.8" />
+                <state_interface name="dig_input.1" />
+                <state_interface name="dig_input.2" />
+                <state_interface name="dig_input.3" />
+                <state_interface name="dig_input.4" />
+                <state_interface name="dig_input.5" />
+                <state_interface name="dig_input.6" />
+                <state_interface name="dig_input.7" />
+                <state_interface name="dig_input.8" />
+                <ec_module name="EK1100">
+                    <plugin>ethercat/BeckhoffEK1100</plugin>
+                    <param name="client_id">1</param>
+                </ec_module>
+                <ec_module name="EL1808">
+                    <plugin>ethercat/BeckhoffEL1808</plugin>
+                    <param name="client_id">2</param>
+                    <param name="di.1">dig_input.1</param>
+                    <param name="di.2">dig_input.2</param>
+                    <param name="di.3">dig_input.3</param>
+                    <param name="di.4">dig_input.4</param>
+                    <param name="di.5">dig_input.5</param>
+                    <param name="di.6">dig_input.6</param>
+                    <param name="di.7">dig_input.7</param>
+                    <param name="di.8">dig_input.8</param>
+                </ec_module>
+                <ec_module name="EL2808">
+                    <plugin>ethercat/BeckhoffEL2808</plugin>
+                    <param name="client_id">3</param>
+                    <param name="do.1">dig_output.1</param>
+                    <param name="do.2">dig_output.2</param>
+                    <param name="do.3">dig_output.3</param>
+                    <param name="do.4">dig_output.4</param>
+                    <param name="do.5">dig_output.5</param>
+                    <param name="do.6">dig_output.6</param>
+                    <param name="do.7">dig_output.7</param>
+                    <param name="do.8">dig_output.8</param>
+                </ec_module>
+            </gpio> -->
+            <!-- Joints -->
+            <joint name="awtube2_18kg_v2_joint1">
+                <command_interface name="position" />
+                <!-- <command_interface name="velocity" />
+                <command_interface name="effort" /> -->
+                <state_interface name="position" />
+                <!-- <state_interface name="velocity" />
+                <state_interface name="effort" /> -->
+                <!-- <ec_module name="AWJointClient">
+                <plugin>ethercat/AWJointClient</plugin>
+                <param name="client_id">4</param>
+                <param name="mode_of_operation">CSP</param>
+                </ec_module> -->
+            </joint>
+            <joint name="awtube2_18kg_v2_joint2">
+                <command_interface name="position" />
+                <!-- <command_interface name="velocity" />
+                <command_interface name="effort" /> -->
+                <state_interface name="position" />
+                <!-- <state_interface name="velocity" />
+                <state_interface name="effort" /> -->
+                <!-- <ec_module name="AWJointClient">
+                <plugin>ethercat/AWJointClient</plugin>
+                <param name="client_id">5</param>
+                <param name="mode_of_operation">CSP</param>
+                </ec_module> -->
+            </joint>
+            <joint name="awtube2_18kg_v2_joint3">
+                <command_interface name="position" />
+                <!-- <command_interface name="velocity" />
+                <command_interface name="effort" /> -->
+                <state_interface name="position" />
+                <!-- <state_interface name="velocity" />
+                <state_interface name="effort" /> -->
+                <!-- <ec_module name="AWJointClient">
+                <plugin>ethercat/AWJointClient</plugin>
+                <param name="client_id">6</param>
+                <param name="mode_of_operation">CSP</param>
+                </ec_module> -->
+            </joint>
+            <joint name="awtube2_18kg_v2_joint4">
+                <command_interface name="position" />
+                <!-- <command_interface name="velocity" />
+                <command_interface name="effort" /> -->
+                <state_interface name="position" />
+                <!-- <state_interface name="velocity" />
+                <state_interface name="effort" /> -->
+                <!-- <ec_module name="AWJointClient">
+                <plugin>ethercat/AWJointClient</plugin>
+                <param name="client_id">7</param>
+                <param name="mode_of_operation">CSP</param>
+                </ec_module> -->
+            </joint>
+            <joint name="awtube2_18kg_v2_joint5">
+                <command_interface name="position" />
+                <!-- <command_interface name="velocity" />
+                <command_interface name="effort" /> -->
+                <state_interface name="position" />
+                <!-- <state_interface name="velocity" />
+                <state_interface name="effort" /> -->
+                <!-- <ec_module name="AWJointClient">
+                <plugin>ethercat/AWJointClient</plugin>
+                <param name="client_id">8</param>
+                <param name="mode_of_operation">CSP</param>
+                </ec_module> -->
+            </joint>
+            <joint name="awtube2_18kg_v2_joint6">
+                <command_interface name="position" />
+                <!-- <command_interface name="velocity" />
+                <command_interface name="effort" /> -->
+                <state_interface name="position" />
+                <!-- <state_interface name="velocity" />
+                <state_interface name="effort" /> -->
+                <!-- <ec_module name="AWJointClient">
+                <plugin>ethercat/AWJointClient</plugin>
+                <param name="client_id">9</param>
+                <param name="mode_of_operation">CSP</param>
+                </ec_module> -->
+            </joint>
+
+        </ros2_control>
+
+        <gazebo reference="lidar_1_link">
+            <sensor name="lidar_1_sensor" type="ray">
+                <always_on>true</always_on>
+                <pose>0 0 0 0 0 0</pose>
+                <visualize>false</visualize>
+                <update_rate>40</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>720</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-1.48</min_angle>
+                            <max_angle>1.48</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.10</min>
+                        <max>30.0</max>
+                        <resolution>0.05</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <!-- Noise parameters based on published spec for Hokuyo laser
+                           achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                           stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                           reading. -->
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                    </noise>
+                </ray>
+                <plugin filename="libgazebo_ros_ray_sensor.so" name="lidar_1">
+                    <ros>
+                        <!-- <namespace>   </namespace> -->
+                        <argument>~/out:=scan</argument>
+                    </ros>
+                    <!-- Set output to sensor_msgs/LaserScan to get same output type as
+                    gazebo_ros_laser -->
+                    <output_type>sensor_msgs/LaserScan</output_type>
+                    <frame_name>lidar_1_link</frame_name>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+        <gazebo reference="lidar_2_link">
+            <sensor name="lidar_2_sensor" type="ray">
+                <pose>0 0 0 0 0 0</pose>
+                <visualize>false</visualize>
+                <update_rate>40</update_rate>
+                <ray>
+                    <scan>
+                        <horizontal>
+                            <samples>720</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-1.48</min_angle>
+                            <max_angle>1.48</max_angle>
+                        </horizontal>
+                    </scan>
+                    <range>
+                        <min>0.10</min>
+                        <max>30.0</max>
+                        <resolution>0.05</resolution>
+                    </range>
+                    <noise>
+                        <type>gaussian</type>
+                        <!-- Noise parameters based on published spec for Hokuyo laser
+                           achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+                           stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+                           reading. -->
+                        <mean>0.0</mean>
+                        <stddev>0.01</stddev>
+                    </noise>
+                </ray>
+                <plugin filename="libgazebo_ros_ray_sensor.so" name="lidar_2">
+                    <ros>
+                        <!-- <namespace> </namespace> -->
+                        <argument>~/out:=scan2</argument>
+                    </ros>
+                    <!-- Set output to sensor_msgs/LaserScan to get same output type as
+                    gazebo_ros_laser -->
+                    <output_type>sensor_msgs/LaserScan</output_type>
+                    <frame_name>lidar_2_link</frame_name>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+        <gazebo>
+            <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
+
+                <commandTopic>cmd_vel</commandTopic>
+                <odometryTopic>odom</odometryTopic>
+                <robotNamespace>
+                    <remapping>/tf:=tf</remapping>
+                </robotNamespace>
+                <ros>
+                    <remapping>/tf:=tf</remapping>
+                </ros>
+
+                <!-- Set control loop update rate -->
+                <odometryRate>100</odometryRate>
+                <!-- Set odom publish rate -->
+                <publish_rate>100</publish_rate>
+
+                <!-- Set if odom required -->
+                <publish_odom>true</publish_odom>
+                <publish_odom_tf>true</publish_odom_tf>
+
+                <!-- Frame IDs -->
+                <odometryFrame>odom</odometryFrame>
+                <robotBaseFrame>base_link</robotBaseFrame>
+
+                <!-- Set odom covariance -->
+                <covariance_x>0.0001</covariance_x>
+                <covariance_y>0.0001</covariance_y>
+                <covariance_yaw>0.0001</covariance_yaw>
+
+            </plugin>
+        </gazebo>
+
+        <!-- camera -->
+        <gazebo reference="camera_link">
+
+            <sensor type="depth" name="camera_link">
+
+                <always_on>1</always_on>
+
+                <update_rate>15</update_rate>
+
+                <camera name="camera_link"> ... <distortion>
+                        <k1>0.1</k1>
+                        <k2>0.2</k2>
+                        <k3>0.3</k3>
+                        <p1>0.4</p1>
+                        <p2>0.5</p2>
+                        <center>0.5 0.5</center>
+                    </distortion>
+                </camera>
+
+                <plugin name="camera_link" filename="libgazebo_ros_camera.so">
+
+                    <ros>
+                    </ros>
+
+                    <camera_name> </camera_name>
+
+                    <frame_name> </frame_name>
+
+                    <hack_baseline>0.07</hack_baseline>
+
+
+                    <min_depth>0.001</min_depth>
+                    <max_depth>300.0</max_depth>
+                </plugin>
+            </sensor>
+        </gazebo>
+
+
+        <gazebo reference="mpo_700_wheel_front_right_link">
+            <!-- <kp> 10000 </kp> -->
+            <!-- <fdir1>0 1 0</fdir1> -->
+            <!-- <slip1> 0.1 </slip1> -->
+            <mu1>0.0001</mu1>
+            <mu2>0.0001</mu2>
+        </gazebo>
+
+        <gazebo reference="mpo_700_wheel_back_right_link">
+            <!-- <kp> 10000 </kp> -->
+            <!-- <fdir1>0 1 0</fdir1> -->
+            <!-- <slip1> 0.1 </slip1> -->
+            <mu1>0.0001</mu1>
+            <mu2>0.0001</mu2>
+        </gazebo>
+
+        <gazebo reference="mpo_700_wheel_front_left_link">
+            <!-- <kp> 10000 </kp> -->
+            <!-- <fdir1>0 1 0</fdir1> -->
+            <!-- <slip1> 0.1 </slip1> -->
+            <mu1>0.0001</mu1>
+            <mu2>0.0001</mu2>
+        </gazebo>
+
+        <gazebo reference="mpo_700_wheel_back_left_link">
+            <!-- <kp> 10000 </kp> -->
+            <!-- <fdir1>0 1 0</fdir1> -->
+            <!-- <slip1> 0.1 </slip1> -->
+            <mu1>0.0001</mu1>
+            <mu2>0.0001</mu2>
+        </gazebo>
+
+        <gazebo>
+            <plugin name="gazebo_ros2_control" filename="libgazebo_ros2_control.so">
+                <robotNamespace>/awcombo</robotNamespace>
+                <!-- ROS 2 Control Parameters -->
+                <!-- <controlPeriod>0.01</controlPeriod> -->
+                <parameters>$(find awcombo_description)/config/awcombo.ros2_controllers.yaml</parameters>
+            </plugin>
+        </gazebo>
+
+
+    </xacro:macro>
+</robot>

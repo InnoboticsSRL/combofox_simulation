@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="camera_support">
+    <!-- Including xacro -->
+    <xacro:include filename="$(find camera_support)/urdf/camera_support.urdf.xacro"/>
+
+    <!-- Virtual link for visualization -->
+    <link name="world"/>
+
+    <!-- Calling the xacro -->
+    <xacro:camera_support parent="world">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:camera_support>
+
+
+</robot>

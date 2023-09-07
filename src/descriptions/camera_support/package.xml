@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>camera_support</name>
+    <version>1.0.0</version>
+    <description>Description of the camera support piece.</description>
+    <author>Alvin Matarozzo</author>
+    <maintainer email="matarozzo@automationware.it">Alvin Matarozzo</maintainer>
+    <maintainer email="deirossi@automationware.it">Mattia Dei Rossi</maintainer>
+    <maintainer email="selvija@automationware.it">Armando Selvija</maintainer>
+    <license>BSD</license>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+    <exec_depend>rclcpp</exec_depend>
+    <exec_depend>robot_state_publisher</exec_depend>
+    <exec_depend>joint_state_publisher</exec_depend>
+    <exec_depend>rviz2</exec_depend>
+    <exec_depend>xacro</exec_depend>
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <build_type>ament_cmake</build_type>
+    <!-- gazebo_ros_paths_plugin automatically adds these to
+    GAZEBO_PLUGIN_PATH and GAZEBO_MODEL_PATH when you do this export inside
+    the package.xml file. You can than use URIs of type model://my_package/stuff. -->
+    <gazebo_ros                                                                 
+        gazebo_plugin_path="${prefix}/lib"
+        gazebo_model_path="${prefix}/.." /> 
+    </export>
+
+</package>

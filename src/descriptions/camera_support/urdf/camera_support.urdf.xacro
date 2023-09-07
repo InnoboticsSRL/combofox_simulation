@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="camera_support" xmlns:xacro="http://ros.org/wiki/xacro">
+
+    <xacro:macro name="camera_support" params="parent *origin">
+
+    <joint name="supporto_cam_base_joint" type="fixed">
+        <parent link="${parent}"/>
+        <child link="base"/>
+        <xacro:insert_block name="origin"/>
+    </joint>
+
+    <link
+        name="base">
+        <inertial>
+            <origin
+                xyz="-0.024968 -1.2433E-07 0.023136"
+                rpy="0 0 0" />
+            <mass
+                value="0.080064" />
+            <inertia
+                ixx="3.9197E-05"
+                ixy="1.1651E-10"
+                ixz="9.4191E-06"
+                iyy="4.1104E-05"
+                iyz="-1.2673E-10"
+                izz="6.4713E-05" />
+        </inertial>
+        <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                    filename="package://camera_support/meshes/base.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                    rgba="0.69804 0.69804 0.69804 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                    filename="package://camera_support/meshes/base.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <link
+        name="cam">
+        <inertial>
+            <origin
+                xyz="-5E-05 -4.3708E-19 0"
+                rpy="0 0 0" />
+            <mass
+                value="1E-07" />
+            <inertia
+                ixx="1.6667E-14"
+                ixy="-4.7178E-34"
+                ixz="-5.2119E-32"
+                iyy="8.4167E-15"
+                iyz="-1.5126E-30"
+                izz="8.4167E-15" />
+        </inertial>
+        <visual>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                    filename="package://camera_support/meshes/cam.STL" />
+            </geometry>
+            <material
+                name="">
+                <color
+                    rgba="0.79216 0.81961 0.93333 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin
+                xyz="0 0 0"
+                rpy="0 0 0" />
+            <geometry>
+                <mesh
+                    filename="package://camera_support/meshes/cam.STL" />
+            </geometry>
+        </collision>
+    </link>
+    <joint
+        name="cam"
+        type="fixed">
+        <origin
+            xyz="-0.0645 0 0.0259"
+            rpy="0 1.5708 0" />
+        <parent
+            link="base" />
+        <child
+            link="cam" />
+        <axis
+            xyz="0 0 0" />
+    </joint>
+
+    </xacro:macro>
+</robot>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="grip_exon" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="grip_exon" params="parent *origin">
+
+  <joint name="grip_exon_base_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child link="RIF"/>
+      <xacro:insert_block name="origin"/>  
+  </joint>
+
+  <link
+    name="RIF">
+    <inertial>
+      <origin
+        xyz="0.00021269 2.1562E-14 0.0025"
+        rpy="0 0 0" />
+      <mass
+        value="0.02908" />
+      <inertia
+        ixx="8.9458E-06"
+        ixy="1.4285E-18"
+        ixz="-4.9596E-21"
+        iyy="2.8336E-05"
+        iyz="1.2484E-18"
+        izz="3.7163E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip_exon/meshes/RIF.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip_exon/meshes/RIF.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="GRIPPER">
+    <inertial>
+      <origin
+        xyz="0.00070773 -0.00049669 -0.043144"
+        rpy="0 0 0" />
+      <mass
+        value="0.69541" />
+      <inertia
+        ixx="0.001292"
+        ixy="-3.4933E-08"
+        ixz="-1.1642E-07"
+        iyy="0.0030317"
+        iyz="1.7201E-06"
+        izz="0.0041665" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip_exon/meshes/GRIPPER.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip_exon/meshes/GRIPPER.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="GRIPPER"
+    type="fixed">
+    <origin
+      xyz="0 0 0.1211"
+      rpy="0 0 0" />
+    <parent
+      link="RIF" />
+    <child
+      link="GRIPPER" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <!-- <link
+    name="camera">
+    <inertial>
+      <origin
+        xyz="-0.052651 4.1069E-05 0.017479"
+        rpy="0 0 0" />
+      <mass
+        value="0.14401" />
+      <inertia
+        ixx="0.00034741"
+        ixy="1.3797E-08"
+        ixz="1.7201E-06"
+        iyy="0.00014747"
+        iyz="-1.2671E-07"
+        izz="0.00036222" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip_exon/meshes/camera.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://grip_exon/meshes/camera.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="camera"
+    type="fixed">
+    <origin
+      xyz="0 -0.05505 0.0475"
+      rpy="3.1416 0 -1.5708" />
+    <parent
+      link="RIF" />
+    <child
+      link="camera" />
+    <axis
+      xyz="0 0 0" />
+  </joint> -->
+  
+  </xacro:macro>
+</robot>

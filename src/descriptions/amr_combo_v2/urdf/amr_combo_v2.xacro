@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="amr_combo_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:include filename="$(find amr_combo_v2)/urdf/amr_combo_v2.urdf.xacro"/>
+    
+    <xacro:amr_combo_v2 name="base_footprint" parent="base_link">
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:amr_combo_v2>
+
+
+</robot>
