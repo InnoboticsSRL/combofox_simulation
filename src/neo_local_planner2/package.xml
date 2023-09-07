@@ -21,8 +21,8 @@
 
     <buildtool_depend>ament_cmake</buildtool_depend>
   
-    <exec_depend>costmap_converter</exec_depend>
-    <exec_depend>costmap_converter_msgs</exec_depend>
+    <!-- <exec_depend>costmap_converter</exec_depend> -->
+    <!-- <exec_depend>costmap_converter_msgs</exec_depend> -->
 
     <exec_depend>geometry_msgs</exec_depend>
     <exec_depend>libg2o</exec_depend>
@@ -45,5 +45,3 @@
     </export>
 
 </package>
-
-
