@@ -26,7 +26,8 @@ RUN apt-get update && apt-get install -y ros-humble-xacro \
     ros-humble-camera-ros \
     ros-humble-gazebo-plugins \
     ros-humble-moveit-ros-move-group \
-    ros-humble-pilz-industrial-motion-planner
+    ros-humble-pilz-industrial-motion-planner \
+    ros-humble-moveit
 
 
 RUN mkdir -p /home/ros2_ws/src \
@@ -35,9 +36,9 @@ RUN mkdir -p /home/ros2_ws/src \
 WORKDIR /home/ros2_ws
 ADD src/ src/. 
 
-# RUN rosdep fix-permissions && rosdep update \
-#     && rosdep install --from-paths ./ -i -y --rosdistro humble \
-#       --ignore-src
+RUN rosdep fix-permissions && rosdep update \
+    && rosdep install --from-paths ./ -i -y --rosdistro humble \
+      --ignore-src
 
 RUN  . /opt/ros/humble/setup.sh \
   && colcon build --merge-install
