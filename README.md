@@ -54,9 +54,13 @@ Build the docker image:
 cd one4all/
 docker build -t gazebo_ros2_control .
 ```
+Enable GUI
+```
+sudo xhost local:docker
+```
 Run the demo:
 ```
-sudo docker run -it --rm --name gazebo_ros2_control_demo --net host gazebo_ros2_control ros2 launch neo_simulation2 simulation.launch.py gui:=false
+sudo docker run -it --rm --name gazebo_ros2_control_demo --net host --env DISPLAY=:0.0 gazebo_ros2_control ros2 launch neo_simulation2 simulation.launch.py gui:=false
 ```
 Locally:
 ```
@@ -64,8 +68,13 @@ gzclient
 ```
 
 ## Expected result
-### Movement's Arm Through Move-Group
+### Arm's Movement Through Move-Group
 TO DO: ADD MOVEMENT WITH MOVE GROUP
+![ROS Package Index]()
 
-### Movement's Base Through Nav2
+### Base's Movement Through Nav2
 TO DO: ADD BASE NAV (MULTIPOINTS)
+![ROS Package Index](https://img.shields.io/ros/v/humble/one4ll)
+
+### Movements Through rqt
+![ROS Package Index](https://img.shields.io/ros/v/humble/one4ll)
