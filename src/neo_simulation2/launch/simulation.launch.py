@@ -149,10 +149,10 @@ def generate_launch_description():
     xacro.process_doc(doc)
     robot_description = {'robot_description': doc.toxml()}
 
-    # declare_use_sim_time_cmd = DeclareLaunchArgument(
-    #     'use_sim_time',
-    #     default_value='true',
-    #     description='Use simulation (Gazebo) clock if true')
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='true',
+        description='Use simulation (Gazebo) clock if true')
 
     # use_robot_state_pub = LaunchConfiguration('use_robot_state_pub')
 
@@ -230,6 +230,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        declare_use_sim_time_cmd,
         rviz_on,
         rviz_node,
         run_move_group_node,
