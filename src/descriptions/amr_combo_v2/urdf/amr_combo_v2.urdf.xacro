@@ -93,15 +93,15 @@ Stephen Brawner (brawner@gmail.com)
             </collision>
         </link>
         <joint
-            name="base_footprint"
+            name="base_footprint_joint"
             type="fixed">
             <origin
                 xyz="0 0 0"
                 rpy="0 0 0" />
             <parent
-                link="base_link" />
-            <child
                 link="base_footprint" />
+            <child
+                link="base_link" />
             <axis
                 xyz="0 0 0" />
         </joint>
@@ -145,26 +145,17 @@ Stephen Brawner (brawner@gmail.com)
                 </geometry>
             </collision>
         </link>
+        <!-- These joint needs to be fixed since n plugin for Gazebo -->
         <joint
             name="mpo_700_caster_back_left_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="-0.26 0.26 0.22"
                 rpy="0 0 0" />
             <parent
-                link="base_footprint" />
+                link="base_link" />
             <child
                 link="mpo_700_caster_back_left_link" />
-            <axis
-                xyz="0 0 1" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="6.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_wheel_back_left_link">
@@ -208,7 +199,7 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_wheel_back_left_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="0 -0.0453 -0.122"
                 rpy="0 0 3.1416" />
@@ -216,16 +207,6 @@ Stephen Brawner (brawner@gmail.com)
                 link="mpo_700_caster_back_left_link" />
             <child
                 link="mpo_700_wheel_back_left_link" />
-            <axis
-                xyz="0 1 0" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="20.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_caster_back_right_link">
@@ -269,24 +250,14 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_caster_back_right_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="-0.26 -0.26 0.22"
                 rpy="0 0 0" />
             <parent
-                link="base_footprint" />
+                link="base_link" />
             <child
                 link="mpo_700_caster_back_right_link" />
-            <axis
-                xyz="0 0 1" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="6.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_wheel_back_right_link">
@@ -330,7 +301,7 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_wheel_back_right_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="0 -0.0453 -0.122"
                 rpy="0 0 3.1416" />
@@ -338,16 +309,6 @@ Stephen Brawner (brawner@gmail.com)
                 link="mpo_700_caster_back_right_link" />
             <child
                 link="mpo_700_wheel_back_right_link" />
-            <axis
-                xyz="0 -1 0" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="20.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_caster_front_left_link">
@@ -391,24 +352,14 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_caster_front_left_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="0.26 0.26 0.22"
                 rpy="0 0 0" />
             <parent
-                link="base_footprint" />
+                link="base_link" />
             <child
                 link="mpo_700_caster_front_left_link" />
-            <axis
-                xyz="0 0 1" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="6.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_wheel_front_left_link">
@@ -452,7 +403,7 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_wheel_front_left_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="0 -0.0453 -0.122"
                 rpy="0 0 3.1416" />
@@ -460,16 +411,6 @@ Stephen Brawner (brawner@gmail.com)
                 link="mpo_700_caster_front_left_link" />
             <child
                 link="mpo_700_wheel_front_left_link" />
-            <axis
-                xyz="0 1 0" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="10000"
-                velocity="20.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_caster_front_right_link">
@@ -513,24 +454,14 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_caster_front_right_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="0.26 -0.26 0.22"
                 rpy="0 0 0" />
             <parent
-                link="base_footprint" />
+                link="base_link" />
             <child
                 link="mpo_700_caster_front_right_link" />
-            <axis
-                xyz="0 0 1" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="6.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="mpo_700_wheel_front_right_link">
@@ -574,7 +505,7 @@ Stephen Brawner (brawner@gmail.com)
         </link>
         <joint
             name="mpo_700_wheel_front_right_joint"
-            type="revolute">
+            type="fixed">
             <origin
                 xyz="0 -0.0453 -0.122"
                 rpy="0 0 -3.1416" />
@@ -582,16 +513,6 @@ Stephen Brawner (brawner@gmail.com)
                 link="mpo_700_caster_front_right_link" />
             <child
                 link="mpo_700_wheel_front_right_link" />
-            <axis
-                xyz="0 -1 0" />
-            <limit
-                lower="-1E+16"
-                upper="1E+16"
-                effort="1000"
-                velocity="20.5" />
-            <dynamics
-                damping="30"
-                friction="110" />
         </joint>
         <link
             name="lidar_1_link">

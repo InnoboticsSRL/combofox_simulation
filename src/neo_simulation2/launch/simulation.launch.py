@@ -118,9 +118,20 @@ def generate_launch_description():
     doc = xacro.parse(open(xacro_file))
     xacro.process_doc(doc)
     robot_description = {'robot_description': doc.toxml()}
+    
+    declare_use_sim_time_cmd = DeclareLaunchArgument(
+        'use_sim_time',
+        default_value='true',
+        description='Use simulation (Gazebo) clock if true')
+    
+    use_robot_state_pub = LaunchConfiguration('use_robot_state_pub')
 
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py', arguments=[
-                        '-entity', "awcombo", '-topic', 'robot_description'], output='screen')
+    # urdf = os.path.join(get_package_share_directory('awcombo_description'), 'urdf/', 'awcombo_converted'+ '.xacro.urdf')
+
+    # spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',arguments=['-entity', "awcombo", '-file', urdf], output='screen')
+    # controller_file = os.path.join(get_package_share_directory('neo_simulation2'), 'configs/mpo_700/awcombo.ros2_controllers.yaml')
+    
+    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',arguments=['-entity', "awcombo", '-topic', 'robot_description'], output='screen')
 
     start_robot_state_publisher_cmd = Node(
         package='robot_state_publisher',
