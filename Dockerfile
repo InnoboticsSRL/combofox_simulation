@@ -24,7 +24,9 @@ RUN apt-get update && apt-get install -y ros-humble-xacro \
     ros-humble-ros2-control \
     ros-humble-ros2-controllers \
     ros-humble-camera-ros \
-    ros-humble-gazebo-plugins
+    ros-humble-gazebo-plugins \
+    ros-humble-moveit-ros-move-group
+
 
 RUN mkdir -p /home/ros2_ws/src \
     && cd /home/ros2_ws/src/ 
