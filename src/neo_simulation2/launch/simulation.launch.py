@@ -4,7 +4,7 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription, ExecuteProcess
 from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import ThisLaunchFileDir, LaunchConfiguration, Command
+from launch.substitutions import LaunchConfiguration, PythonExpression
 from launch_ros.actions import Node
 import os
 from pathlib import Path
@@ -51,7 +51,12 @@ robot_description_kinematics = {
     'robot_description_kinematics': kinematics_yaml}
 joint_limits = {'robot_description_planning': joint_limits_yaml}
 
-# ------ Rviz ------ì
+# ------ Rviz --------
+rviz_base = os.path.join(get_package_share_directory(
+    'neo_simulation2'), 'configs/awcombo')
+rviz_full_config = os.path.join(rviz_base, 'navigation.rviz')
+rviz_on = DeclareLaunchArgument(name='rviz_on', default_value='true', choices=['true', 'false'],
+                                description='Flag to launch Rviz')
 
 # ------ Moveit planning pipeline -------
 # ompl_planning_pipeline_config = {
@@ -104,9 +109,34 @@ planning_scene_monitor_parameters = {
 }
 
 MY_NEO_ENVIRONMENT = 'neo_track1'  # or 'neo_track1' or 'neo_track2'
+MY_NEO_ROBOT = 'mpo_700'
+MAP_NAME = 'neo_track1'
 
 
 def generate_launch_description():
+    use_multi_robots = LaunchConfiguration('use_multi_robots', default='False')
+    use_amcl = LaunchConfiguration('use_amcl', default='False')
+    use_sim_time = LaunchConfiguration('use_sim_time', default='True')
+    namespace = LaunchConfiguration('namespace', default='')
+    # use_namespace = LaunchConfiguration('use_namespace', default='False')
+    map_dir = LaunchConfiguration(
+        'map',
+        default=os.path.join(
+            get_package_share_directory('neo_simulation2'),
+            'maps',
+            MY_NEO_ENVIRONMENT+'.yaml'))
+
+    param_file_name = 'navigation.yaml'
+    param_dir = LaunchConfiguration(
+        'params_file',
+        default=os.path.join(
+            get_package_share_directory('neo_simulation2'),
+            'configs/'+MY_NEO_ROBOT,
+            param_file_name))
+
+    nav2_launch_file_dir = os.path.join(
+        get_package_share_directory('neo_nav2_bringup'), 'launch')
+
     default_world_path = os.path.join(get_package_share_directory(
         'neo_simulation2'), 'worlds', MY_NEO_ENVIRONMENT + '.world')
 
@@ -118,20 +148,21 @@ def generate_launch_description():
     doc = xacro.parse(open(xacro_file))
     xacro.process_doc(doc)
     robot_description = {'robot_description': doc.toxml()}
-    
-    declare_use_sim_time_cmd = DeclareLaunchArgument(
-        'use_sim_time',
-        default_value='true',
-        description='Use simulation (Gazebo) clock if true')
-    
-    use_robot_state_pub = LaunchConfiguration('use_robot_state_pub')
+
+    # declare_use_sim_time_cmd = DeclareLaunchArgument(
+    #     'use_sim_time',
+    #     default_value='true',
+    #     description='Use simulation (Gazebo) clock if true')
+
+    # use_robot_state_pub = LaunchConfiguration('use_robot_state_pub')
 
     # urdf = os.path.join(get_package_share_directory('awcombo_description'), 'urdf/', 'awcombo_converted'+ '.xacro.urdf')
 
     # spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',arguments=['-entity', "awcombo", '-file', urdf], output='screen')
     # controller_file = os.path.join(get_package_share_directory('neo_simulation2'), 'configs/mpo_700/awcombo.ros2_controllers.yaml')
-    
-    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py',arguments=['-entity', "awcombo", '-topic', 'robot_description'], output='screen')
+
+    spawn_entity = Node(package='gazebo_ros', executable='spawn_entity.py', arguments=[
+                        '-entity', "awcombo", '-topic', 'robot_description'], output='screen')
 
     start_robot_state_publisher_cmd = Node(
         package='robot_state_publisher',
@@ -186,8 +217,8 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output={'both': 'log'},
-        # arguments=['-d', rviz_full_config],
-        # condition=IfCondition(LaunchConfiguration('rviz_on')),
+        arguments=['-d', rviz_full_config],
+        condition=IfCondition(LaunchConfiguration('rviz_on')),
         parameters=[
             robot_description,
             robot_description_semantic,
@@ -199,6 +230,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        rviz_on,
         #   teleop,
         RegisterEventHandler(
             event_handler=OnProcessExit(
@@ -217,5 +249,33 @@ def generate_launch_description():
         spawn_entity,
         run_move_group_node,
         rviz_node,
-        # rviz_on
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [nav2_launch_file_dir, '/localization_neo.launch.py']),
+            condition=IfCondition(PythonExpression(['not ', use_amcl])),
+            launch_arguments={
+                'map': map_dir,
+                'use_sim_time': use_sim_time,
+                'use_multi_robots': use_multi_robots,
+                'params_file': param_dir,
+                'namespace': namespace}.items(),
+        ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [nav2_launch_file_dir, '/localization_amcl.launch.py']),
+            condition=IfCondition(use_amcl),
+            launch_arguments={
+                'map': map_dir,
+                'use_sim_time': use_sim_time,
+                'use_multi_robots': use_multi_robots,
+                'params_file': param_dir,
+                'namespace': namespace}.items(),
+        ),
+
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(
+                [nav2_launch_file_dir, '/navigation_neo.launch.py']),
+            launch_arguments={'namespace': namespace,
+                              'use_sim_time': use_sim_time,
+                              'params_file': param_dir}.items()),
     ])
