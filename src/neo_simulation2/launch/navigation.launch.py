@@ -33,7 +33,7 @@ def generate_launch_description():
         'params_file',
         default=os.path.join(
             get_package_share_directory('neo_simulation2'),
-            'configs/'+MY_NEO_ROBOT,
+            'configs/'+'awcombo',
             param_file_name))
 
     nav2_launch_file_dir = os.path.join(get_package_share_directory('neo_nav2_bringup'), 'launch')
