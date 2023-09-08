@@ -53,14 +53,14 @@ def generate_launch_description():
             package='nav2_map_server',
             executable='map_server',
             name='map_server',
-            output='screen',
+            output='log',
             parameters=[configured_params],
             remappings=remappings),
 
         Node(
             package='neo_localization2', 
             executable='neo_localization_node', 
-            output='screen',
+            output='log',
             name='neo_localization2_node', 
             parameters= [configured_params],
             remappings= remappings),
@@ -69,7 +69,7 @@ def generate_launch_description():
             package='nav2_lifecycle_manager',
             executable='lifecycle_manager',
             name='lifecycle_manager_localization',
-            output='screen',
+            output='log',
             parameters=[{'use_sim_time': use_sim_time},
                         {'autostart': autostart},
                         {'node_names': lifecycle_nodes}])
@@ -82,7 +82,7 @@ def generate_launch_description():
         Node(
             package='neo_localization2', 
             executable='neo_localization_node', 
-            output='screen',
+            output='log',
             name='neo_localization2_node', 
             parameters= [configured_params]),
         ]
