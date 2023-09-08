@@ -116,7 +116,6 @@ MAP_NAME = 'neo_track1'
 def generate_launch_description():
     use_multi_robots = LaunchConfiguration('use_multi_robots', default='False')
     use_amcl = LaunchConfiguration('use_amcl', default='False')
-    use_sim_time = LaunchConfiguration('use_sim_time', default='True')
     namespace = LaunchConfiguration('namespace', default='')
     # use_namespace = LaunchConfiguration('use_namespace', default='False')
     map_dir = LaunchConfiguration(
@@ -209,7 +208,8 @@ def generate_launch_description():
             pilz_planning_pipeline_config,
             trajectory_execution,
             moveit_controllers,
-            planning_scene_monitor_parameters
+            planning_scene_monitor_parameters,
+            {"use_sim_time": use_sim_time}
         ]
     )
     rviz_node = Node(
@@ -225,6 +225,7 @@ def generate_launch_description():
             # ompl_planning_pipeline_config, # Alternatively: pilz_planning_pipeline_config
             pilz_planning_pipeline_config,
             kinematics_yaml,
+            {"use_sim_time": use_sim_time}
         ],
         emulate_tty=True
     )

@@ -13,40 +13,47 @@ joint_limits:
     max_velocity: 1.2436
     has_acceleration_limits: true
     max_acceleration: 5.0
-    has_deceleration_limits: true
-    max_decelaration: -5.0
+    has_deceleration_limits: false
+    max_decelaration: 5.0
   awtube2_18kg_v2_joint2:
     has_velocity_limits: true
     max_velocity: 0.85999999999999999
     has_acceleration_limits: true
     max_acceleration: 5.0
-    has_deceleration_limits: true
-    max_decelaration: -5.0
+    has_deceleration_limits: false
+    max_decelaration: 5.0
   awtube2_18kg_v2_joint3:
     has_velocity_limits: true
     max_velocity: 1.24
     has_acceleration_limits: true
     max_acceleration: 5.0
-    has_deceleration_limits: true
-    max_decelaration: -5.0
+    has_deceleration_limits: false
+    max_decelaration: 5.0
   awtube2_18kg_v2_joint4:
     has_velocity_limits: true
     max_velocity: 2.71
     has_acceleration_limits: true
     max_acceleration: 5.0
-    has_deceleration_limits: true
-    max_decelaration: -5.0
+    has_deceleration_limits: false
+    max_decelaration: 5.0
   awtube2_18kg_v2_joint5:
     has_velocity_limits: true
     max_velocity: 2.71
     has_acceleration_limits: true
     max_acceleration: 5.0
-    has_deceleration_limits: true
-    max_decelaration: -5.0
+    has_deceleration_limits: false
+    max_decelaration: 5.0
   awtube2_18kg_v2_joint6:
     has_velocity_limits: true
     max_velocity: 3.6099999999999999
     has_acceleration_limits: true
     max_acceleration: 5.0
-    has_deceleration_limits: true
-    max_decelaration: -5.0
+    has_deceleration_limits: false
+    max_decelaration: 5.0
+
+    # Limits for the Pilz planner
+cartesian_limits:
+  max_trans_vel: 1.0
+  max_trans_acc: 2.25
+  max_trans_dec: -5.0
+  max_rot_vel: 1.57
