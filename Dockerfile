@@ -46,11 +46,3 @@ RUN  . /opt/ros/humble/setup.sh \
 COPY entrypoint.sh /entrypoint.sh
 RUN ["chmod", "+x", "/entrypoint.sh"]
 ENTRYPOINT ["/entrypoint.sh"]
-
-# RUN apt-get update && apt-get install -y ros-humble-xacro \
-#     ros-humble-gazebo-ros2-control \
-#     ros-humble-ros2-control \
-#     ros-humble-ros2-controllers \
-#     ros-humble-controller-manager
-
-# CMD ros2 launch neo_simulation2 simulation.launch.py

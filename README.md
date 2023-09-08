@@ -1,5 +1,5 @@
 <a href="http://www.automationware.it/">
-    <img src="doc/img/logoAW.png" alt="Aw logo" title="AutomationWare" align="right" height="40" />
+    <img src="./doc/images/logoAW.png" alt="Aw logo" title="AutomationWare" align="right" height="40" />
 </a>
 
 Authors: 
@@ -11,8 +11,6 @@ Authors:
 
 This workspace has been developed and tested on `ros2 humble`.
 
-TO DO: ADD GIF EXAMPLES
-
 
 ## Local setup and compile
 Clone the repository:
@@ -21,7 +19,23 @@ https://github.com/Automationware/one4all.git
 ```
 Install necessary dependencies:
 ```
-rosdep initi && rosdep fix-permissions && rosdep update \
+sudo apt-get update
+sudo apt-get install -y ros-humble-xacro \
+    ros-humble-gazebo-ros2-control \
+    ros-humble-ros2-control \
+    ros-humble-ros2-controllers \
+    ros-humble-camera-ros \
+    ros-humble-gazebo-plugins \
+    ros-humble-moveit-ros-move-group \
+    ros-humble-pilz-industrial-motion-planner \
+    ros-humble-moveit \
+    ros-humble-gazebo-ros ros-humble-gazebo-plugins ros-humble-gazebo-ros-pkgs \
+    ros-humble-navigation2 ros-humble-nav2-* \
+    ros-humble-slam-toolbox \
+    ros-humble-teleop-twist-joy \
+    ros-humble-teleop-twist-keyboard\
+
+rosdep update \
     && rosdep install --from-paths ./ -i -y --rosdistro humble \
       --ignore-src
 ```
@@ -44,7 +58,7 @@ ros2 launch neo_simulation2 simulation.launch.py
 ```
 Additionally, rqt may be used for a first interaction with the robot (config file could be also loaded inside the app by GUI):
 ```
-rqt --perspective-file
+rqt --perspective-file rqt_controllers_commands.perspective
 ```
 
 
@@ -60,21 +74,26 @@ sudo xhost local:docker
 ```
 Run the demo:
 ```
-sudo docker run -it --rm --name gazebo_ros2_control_demo --net host --env DISPLAY=:0.0 gazebo_ros2_control ros2 launch neo_simulation2 simulation.launch.py gui:=false
+sudo docker run -it --rm --name gazebo_ros2_control_demo --net host --env DISPLAY=:0.0 gazebo_ros2_control ros2 launch neo_simulation2 simulation.launch.py
 ```
-Locally:
-```
-gzclient
-```
+
+**Please note**: 
+- GUI may takes several minutes to load
+- It is suggested to use docker to simulate without GUI
 
 ## Expected result
 ### Arm's Movement Through Move-Group
-TO DO: ADD MOVEMENT WITH MOVE GROUP
-![ROS Package Index]()
+<p align="center">
+    <img src="./doc/gifs/movegroup_example.gif" width="80%"/>
+</p>
+
 
 ### Base's Movement Through Nav2
-TO DO: ADD BASE NAV (MULTIPOINTS)
-![ROS Package Index](https://img.shields.io/ros/v/humble/one4ll)
+<p align="center">
+    <img src="./doc/gifs/nav2_example.gif" width="80%"/>
+</p>
 
 ### Movements Through rqt
-![ROS Package Index](https://img.shields.io/ros/v/humble/one4ll)
+<p align="center">
+    <img src="./doc/gifs/rqt_controll_example.gif" width="80%"/>
+</p>
