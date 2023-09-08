@@ -1,0 +1,9 @@
+# Default initial positions for awcombo's ros2_control fake system
+
+initial_positions:
+  awtube2_18kg_v2_joint1: 0
+  awtube2_18kg_v2_joint2: 0
+  awtube2_18kg_v2_joint3: 0
+  awtube2_18kg_v2_joint4: 0
+  awtube2_18kg_v2_joint5: 0
+  awtube2_18kg_v2_joint6: 0

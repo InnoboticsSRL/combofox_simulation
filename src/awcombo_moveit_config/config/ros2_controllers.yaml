@@ -1,0 +1,26 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    CSP:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+CSP:
+  ros__parameters:
+    joints:
+      - awtube2_18kg_v2_joint1
+      - awtube2_18kg_v2_joint2
+      - awtube2_18kg_v2_joint3
+      - awtube2_18kg_v2_joint4
+      - awtube2_18kg_v2_joint5
+      - awtube2_18kg_v2_joint6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      # - velocity
