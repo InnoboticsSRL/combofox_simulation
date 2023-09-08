@@ -231,23 +231,6 @@ def generate_launch_description():
 
     return LaunchDescription([
         rviz_on,
-        #   teleop,
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=spawn_entity,
-                on_exit=[load_joint_state_controller],
-            )
-        ),
-        RegisterEventHandler(
-            event_handler=OnProcessExit(
-                target_action=load_joint_state_controller,
-                on_exit=[load_joint_trajectory_controller],
-            )
-        ),
-        gazebo,
-        start_robot_state_publisher_cmd,
-        spawn_entity,
-        run_move_group_node,
         rviz_node,
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
@@ -278,4 +261,20 @@ def generate_launch_description():
             launch_arguments={'namespace': namespace,
                               'use_sim_time': use_sim_time,
                               'params_file': param_dir}.items()),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=spawn_entity,
+                on_exit=[load_joint_state_controller],
+            )
+        ),
+        RegisterEventHandler(
+            event_handler=OnProcessExit(
+                target_action=load_joint_state_controller,
+                on_exit=[load_joint_trajectory_controller],
+            )
+        ),
+        gazebo,
+        start_robot_state_publisher_cmd,
+        spawn_entity,
+        run_move_group_node
     ])
