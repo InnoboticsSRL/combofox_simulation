@@ -88,7 +88,7 @@ pilz_planning_pipeline_config = {
     }
 }
 simple_controllers_yaml = load_yaml(
-    'awcombo_description', 'config/awcombo.ros2_controllers.yaml'
+    'awcombo_moveit_config', 'config/moveit_controllers.yaml'
 )
 moveit_controllers = {
     'moveit_controller_manager': 'moveit_simple_controller_manager'
@@ -179,7 +179,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             'world': default_world_path,
-            'verbose': 'true',
+            'verbose': 'false',
 
         }.items()
     )
@@ -232,6 +232,7 @@ def generate_launch_description():
     return LaunchDescription([
         rviz_on,
         rviz_node,
+        run_move_group_node,
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(
                 [nav2_launch_file_dir, '/localization_neo.launch.py']),
@@ -275,6 +276,5 @@ def generate_launch_description():
         ),
         gazebo,
         start_robot_state_publisher_cmd,
-        spawn_entity,
-        run_move_group_node
+        spawn_entity
     ])
