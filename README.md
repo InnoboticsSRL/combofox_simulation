@@ -7,7 +7,7 @@ Authors:
 - [Alvin Matarozzo](matarozzo@automationware.it) - Automationware
 - [Armando Selvija](selvija@automationware.it) - Automationware
 
-# Aw robotics
+# One4all AwCombo Simulation
 
 This workspace has been developed and tested on `ros2 humble`.
 
