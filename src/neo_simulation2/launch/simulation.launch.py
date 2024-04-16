@@ -106,6 +106,9 @@ planning_scene_monitor_parameters = {
     'publish_geometry_updates': True,
     'publish_state_updates': True,
     'publish_transforms_updates': True,
+    'publish_robot_description': True,
+    'publish_robot_description_semantic': True,
+    'publish_robot_description_kinematics': True,
 }
 
 MY_NEO_ENVIRONMENT = 'neo_track1'  # or 'neo_track1' or 'neo_track2'
