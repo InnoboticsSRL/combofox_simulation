@@ -11,9 +11,9 @@ CSP:
   action_ns: follow_joint_trajectory
   # default: true
   joints:
-    - awtube2_18kg_v2_joint1
-    - awtube2_18kg_v2_joint2
-    - awtube2_18kg_v2_joint3
-    - awtube2_18kg_v2_joint4
-    - awtube2_18kg_v2_joint5
-    - awtube2_18kg_v2_joint6
+    - awtube_joint1
+    - awtube_joint2
+    - awtube_joint3
+    - awtube_joint4
+    - awtube_joint5
+    - awtube_joint6

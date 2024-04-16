@@ -7,10 +7,10 @@
     <xacro:arg name="iname" default="eno1" />
 
     <!-- Amr combo base -->
-    <xacro:include filename="$(find amr_combo_v2)/urdf/amr_combo_v2.urdf.xacro"/>
+    <xacro:include filename="$(find amr_combo_v3)/urdf/amr_combo_v3.urdf.xacro"/>
 
     <!-- Robotic arm -->
-    <xacro:include filename="$(find awtube2_18kg_v2)/urdf/awtube2_18kg_v2.urdf.xacro" />
+    <xacro:include filename="$(find awtube31814v2)/xacro/awtube31814v2.xacro" />
 
     <!-- Gripper -->
     <xacro:include filename="$(find grip_exon)/urdf/grip_exon.urdf.xacro" />
@@ -25,16 +25,16 @@
     <xacro:include filename="$(find awcombo_description)/urdf/awtube.ros2_control.xacro" />
 
     <!-- Calling the macros, starting from neo base -->
-    <xacro:amr_combo_v2 name="base_footprint" parent="base_link">
+    <xacro:amr_combo_v3 name="base_footprint" parent="base_link">
         <origin xyz="0 0 0" rpy="0 0 0" />
-    </xacro:amr_combo_v2>
+    </xacro:amr_combo_v3>
 
-    <xacro:awtube2_18kg_v2 parent="agv_link1">
-        <origin xyz="0 0 0" rpy="0 0 0" />
-    </xacro:awtube2_18kg_v2>
+    <xacro:awtube3 connected_to="agv_link1">
+        <origin xyz="0 0 0" rpy="0 0 1.57" />
+    </xacro:awtube3>
 
-    <xacro:grip_exon parent="awtube2_18kg_v2_link6">
-        <origin xyz="0 0 0.057" rpy="0 0 -1.57" />
+    <xacro:grip_exon parent="awtube_link6">
+        <origin xyz="0 0 0.0" rpy="0 0 -1.57" />
     </xacro:grip_exon>
 
     <xacro:camera_support parent="GRIPPER">

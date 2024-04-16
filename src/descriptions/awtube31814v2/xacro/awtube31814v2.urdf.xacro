@@ -1,0 +1,12 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="awtube31814v2">
+
+    <xacro:arg name="use_fake_hardware" default="true" />
+
+    <!-- Generate the mobile cobot -->
+    <xacro:include filename="$(find awtube31814v2)/xacro/awtube31814v2.xacro" />
+
+    <xacro:awtube3>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+    </xacro:awtube3>
+
+</robot>

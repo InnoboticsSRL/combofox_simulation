@@ -8,45 +8,45 @@
                 <!-- By default, set up controllers for simulation. This won't work on real hardware -->
                 <plugin>mock_components/GenericSystem</plugin>
             </hardware>
-            <joint name="awtube2_18kg_v2_joint1">
+            <joint name="awtube_joint1">
                 <command_interface name="position"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['awtube2_18kg_v2_joint1']}</param>
+                  <param name="initial_value">${initial_positions['awtube_joint1']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-            <joint name="awtube2_18kg_v2_joint2">
+            <joint name="awtube_joint2">
                 <command_interface name="position"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['awtube2_18kg_v2_joint2']}</param>
+                  <param name="initial_value">${initial_positions['awtube_joint2']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-            <joint name="awtube2_18kg_v2_joint3">
+            <joint name="awtube_joint3">
                 <command_interface name="position"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['awtube2_18kg_v2_joint3']}</param>
+                  <param name="initial_value">${initial_positions['awtube_joint3']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-            <joint name="awtube2_18kg_v2_joint4">
+            <joint name="awtube_joint4">
                 <command_interface name="position"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['awtube2_18kg_v2_joint4']}</param>
+                  <param name="initial_value">${initial_positions['awtube_joint4']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-            <joint name="awtube2_18kg_v2_joint5">
+            <joint name="awtube_joint5">
                 <command_interface name="position"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['awtube2_18kg_v2_joint5']}</param>
+                  <param name="initial_value">${initial_positions['awtube_joint5']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>
-            <joint name="awtube2_18kg_v2_joint6">
+            <joint name="awtube_joint6">
                 <command_interface name="position"/>
                 <state_interface name="position">
-                  <param name="initial_value">${initial_positions['awtube2_18kg_v2_joint6']}</param>
+                  <param name="initial_value">${initial_positions['awtube_joint6']}</param>
                 </state_interface>
                 <state_interface name="velocity"/>
             </joint>

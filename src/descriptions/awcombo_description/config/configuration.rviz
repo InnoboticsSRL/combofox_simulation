@@ -61,19 +61,19 @@ Visualization Manager:
           Value: true
         agv_sdr_base:
           Value: true
-        awtube2_18kg_v2_base_link:
+        awtube_base_link:
           Value: true
-        awtube2_18kg_v2_link1:
+        awtube_link1:
           Value: true
-        awtube2_18kg_v2_link2:
+        awtube_link2:
           Value: true
-        awtube2_18kg_v2_link3:
+        awtube_link3:
           Value: true
-        awtube2_18kg_v2_link4:
+        awtube_link4:
           Value: true
-        awtube2_18kg_v2_link5:
+        awtube_link5:
           Value: true
-        awtube2_18kg_v2_link6:
+        awtube_link6:
           Value: true
         base:
           Value: true
@@ -116,13 +116,13 @@ Visualization Manager:
         base_link:
           agv_sdr_base:
             agv_link1:
-              awtube2_18kg_v2_base_link:
-                awtube2_18kg_v2_link1:
-                  awtube2_18kg_v2_link2:
-                    awtube2_18kg_v2_link3:
-                      awtube2_18kg_v2_link4:
-                        awtube2_18kg_v2_link5:
-                          awtube2_18kg_v2_link6:
+              awtube_base_link:
+                awtube_link1:
+                  awtube_link2:
+                    awtube_link3:
+                      awtube_link4:
+                        awtube_link5:
+                          awtube_link6:
                             RIF:
                               GRIPPER:
                                 base:
@@ -187,37 +187,37 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_base_link:
+        awtube_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_link1:
+        awtube_link1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_link2:
+        awtube_link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_link3:
+        awtube_link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_link4:
+        awtube_link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_link5:
+        awtube_link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        awtube2_18kg_v2_link6:
+        awtube_link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false

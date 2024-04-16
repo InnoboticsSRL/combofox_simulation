@@ -50,12 +50,12 @@ gpio_command_controller:
 CSP: 
   ros__parameters:
     joints:
-      - awtube2_18kg_v2_joint1
-      - awtube2_18kg_v2_joint2
-      - awtube2_18kg_v2_joint3
-      - awtube2_18kg_v2_joint4
-      - awtube2_18kg_v2_joint5
-      - awtube2_18kg_v2_joint6
+      - awtube_joint1
+      - awtube_joint2
+      - awtube_joint3
+      - awtube_joint4
+      - awtube_joint5
+      - awtube_joint6
     
     interface_name: position
 
@@ -72,32 +72,32 @@ CSP:
       stopped_velocity_tolerance: 0.01 # Defaults to 0.01
       goal_time: 0.0 # Defaults to 0.0 (start immediately)
     
-    awtube2_18kg_v2_joint1:
+    awtube_joint1:
       pid:
         p: 100.0
         i: 1
         d: 0.1  
-    awtube2_18kg_v2_joint2:
+    awtube_joint2:
       pid:
         p: 100.0
         i: 1
         d: 0.1  
-    awtube2_18kg_v2_joint3:
+    awtube_joint3:
       pid:
         p: 100.0
         i: 1
         d: 0.1  
-    awtube2_18kg_v2_joint4:
+    awtube_joint4:
       pid:
         p: 100.0
         i: 1
         d: 0.1  
-    awtube2_18kg_v2_joint5:
+    awtube_joint5:
       pid:
         p: 100.0
         i: 1
         d: 0.1        
-    awtube2_18kg_v2_joint16:
+    awtube_joint6:
       pid:
         p: 100.0
         i: 1

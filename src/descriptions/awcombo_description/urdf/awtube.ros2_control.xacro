@@ -67,7 +67,7 @@
                 </ec_module>
             </gpio> -->
             <!-- Joints -->
-            <joint name="awtube2_18kg_v2_joint1">
+            <joint name="awtube_joint1">
                 <command_interface name="position" />
                 <!-- <command_interface name="velocity" />
                 <command_interface name="effort" /> -->
@@ -80,7 +80,7 @@
                 <param name="mode_of_operation">CSP</param>
                 </ec_module> -->
             </joint>
-            <joint name="awtube2_18kg_v2_joint2">
+            <joint name="awtube_joint2">
                 <command_interface name="position" />
                 <!-- <command_interface name="velocity" />
                 <command_interface name="effort" /> -->
@@ -93,7 +93,7 @@
                 <param name="mode_of_operation">CSP</param>
                 </ec_module> -->
             </joint>
-            <joint name="awtube2_18kg_v2_joint3">
+            <joint name="awtube_joint3">
                 <command_interface name="position" />
                 <!-- <command_interface name="velocity" />
                 <command_interface name="effort" /> -->
@@ -106,7 +106,7 @@
                 <param name="mode_of_operation">CSP</param>
                 </ec_module> -->
             </joint>
-            <joint name="awtube2_18kg_v2_joint4">
+            <joint name="awtube_joint4">
                 <command_interface name="position" />
                 <!-- <command_interface name="velocity" />
                 <command_interface name="effort" /> -->
@@ -119,7 +119,7 @@
                 <param name="mode_of_operation">CSP</param>
                 </ec_module> -->
             </joint>
-            <joint name="awtube2_18kg_v2_joint5">
+            <joint name="awtube_joint5">
                 <command_interface name="position" />
                 <!-- <command_interface name="velocity" />
                 <command_interface name="effort" /> -->
@@ -132,7 +132,7 @@
                 <param name="mode_of_operation">CSP</param>
                 </ec_module> -->
             </joint>
-            <joint name="awtube2_18kg_v2_joint6">
+            <joint name="awtube_joint6">
                 <command_interface name="position" />
                 <!-- <command_interface name="velocity" />
                 <command_interface name="effort" /> -->
