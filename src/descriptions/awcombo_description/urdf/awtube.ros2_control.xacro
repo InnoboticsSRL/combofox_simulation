@@ -312,32 +312,32 @@
             <!-- <kp> 10000 </kp> -->
             <!-- <fdir1>0 1 0</fdir1> -->
             <!-- <slip1> 0.1 </slip1> -->
-            <mu1>0.0001</mu1>
-            <mu2>0.0001</mu2>
+            <mu1>0.01</mu1>
+            <mu2>0.01</mu2>
         </gazebo>
 
         <gazebo reference="mpo_700_wheel_back_right_link">
             <!-- <kp> 10000 </kp> -->
             <!-- <fdir1>0 1 0</fdir1> -->
             <!-- <slip1> 0.1 </slip1> -->
-            <mu1>0.0001</mu1>
-            <mu2>0.0001</mu2>
+            <mu1>0.01</mu1>
+            <mu2>0.01</mu2>
         </gazebo>
 
         <gazebo reference="mpo_700_wheel_front_left_link">
             <!-- <kp> 10000 </kp> -->
             <!-- <fdir1>0 1 0</fdir1> -->
             <!-- <slip1> 0.1 </slip1> -->
-            <mu1>0.0001</mu1>
-            <mu2>0.0001</mu2>
+            <mu1>0.01</mu1>
+            <mu2>0.01</mu2>
         </gazebo>
 
         <gazebo reference="mpo_700_wheel_back_left_link">
             <!-- <kp> 10000 </kp> -->
             <!-- <fdir1>0 1 0</fdir1> -->
             <!-- <slip1> 0.1 </slip1> -->
-            <mu1>0.0001</mu1>
-            <mu2>0.0001</mu2>
+            <mu1>0.01</mu1>
+            <mu2>0.01</mu2>
         </gazebo>
 
         <gazebo>
