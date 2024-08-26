@@ -1,13 +1,13 @@
 <a href="http://www.automationware.it/">
-    <img src="./doc/images/logoAW.png" alt="Aw logo" title="AutomationWare" align="right" height="40" />
+    <img src="./doc/images/logo-IBT_positivo.png" alt="Aw logo" title="AutomationWare" align="right" height="40" />
 </a>
 
 Authors: 
-- [Mattia Dei Rossi](deirossi@automationware.it) - Automationware
-- [Alvin Matarozzo](matarozzo@automationware.it) - Automationware
-- [Armando Selvija](selvija@automationware.it) - Automationware
+- [Mattia Dei Rossi](deirossi@automationware.it) - Innobotics
+- [Alvin Matarozzo](matarozzo@automationware.it) - Innobotics
+- [Armando Selvija](selvija@automationware.it) - Innobotics
 
-# One4all AwCombo Simulation
+# ComboFox Simulation
 
 This workspace has been developed and tested on `ros2 humble`.
 
@@ -15,7 +15,7 @@ This workspace has been developed and tested on `ros2 humble`.
 ## Local setup and compile
 Clone the repository:
 ```
-https://github.com/Automationware/one4all.git
+https://github.com/InnoboticsSRL/one4all.git
 ```
 Install necessary dependencies:
 ```
