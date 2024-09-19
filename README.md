@@ -13,8 +13,7 @@ This workspace has been developed and tested on `ros2 humble`.
 
 
 ## Local setup and compile
-Clone the repository:
-Install necessary dependencies:
+Clone the repository and then install necessary dependencies:
 ```
 sudo apt-get update
 sudo apt-get install -y ros-humble-xacro \
@@ -38,7 +37,7 @@ rosdep update \
 ```
 Build the project:
 ```
-cd one4all/
+cd combofox_simulation/
 colcon build --symlink-install
 ```
 Source the project:
@@ -62,7 +61,7 @@ rqt --perspective-file rqt_controllers_commands.perspective
 ## Docker
 Build the docker image:
 ```
-cd one4all/
+cd combofox_simulation/
 docker build -t gazebo_ros2_control .
 ```
 Enable GUI
