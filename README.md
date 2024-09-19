@@ -14,9 +14,6 @@ This workspace has been developed and tested on `ros2 humble`.
 
 ## Local setup and compile
 Clone the repository:
-```
-https://github.com/InnoboticsSRL/one4all.git
-```
 Install necessary dependencies:
 ```
 sudo apt-get update
