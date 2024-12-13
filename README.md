@@ -9,7 +9,7 @@ Authors:
 
 # ComboFox Simulation
 
-This workspace has been developed and tested on `ros2 humble`.
+This workspace has been developed and tested on `ros2 humble`. This repo is no longer maintained so it should be used as is.
 
 
 ## Local setup and compile
